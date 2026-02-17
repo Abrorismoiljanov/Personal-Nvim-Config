@@ -1,4 +1,5 @@
-**This repo is supposed to be used as config by NvChad users!**
+**My Personal NVIM Configuration**
+Use MasonInstallAll to install things you need.
 
 - The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
 - So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`

@@ -5,8 +5,21 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.ui = {
+  tabline = {
+    bufferline = {
+      -- minimum width of each tab
+      min_width = 40,  -- default is like 10, make it wider
+      max_width = 50,  -- optional
+    },
+  },
+}
+
+
 M.base46 = {
-	theme = "onedark",
+	theme = "catppuccin",
+  transparency = true;
+  hl_override = require("custom.highlights").override,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },

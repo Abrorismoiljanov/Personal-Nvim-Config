@@ -13,6 +13,17 @@ return {
     end,
   },
 
+  {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "configs.lspconfig"
+    end,
+  },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
@@ -26,3 +37,4 @@ return {
   -- 	},
   -- },
 }
+

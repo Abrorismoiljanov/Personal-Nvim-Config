@@ -1,5 +1,5 @@
 local options = {
-  formatters_by_ft = {
+ formatters_by_ft = {
     lua = { "stylua" },
     -- css = { "prettier" },
     -- html = { "prettier" },

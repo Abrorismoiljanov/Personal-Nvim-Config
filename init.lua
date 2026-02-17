@@ -10,6 +10,7 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+vim.opt.clipboard = "unnamedplus"
 
 local lazy_config = require "configs.lazy"
 
@@ -29,9 +30,27 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+
 require "options"
 require "autocmds"
 
 vim.schedule(function()
   require "mappings"
 end)
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    local groups = {
+      "Normal", "NormalNC", "EndOfBuffer", "SignColumn", "LineNr",
+      "VertSplit", "StatusLine", "StatusLineNC", "MsgArea",
+      "NvimTreeNormal", "NvimTreeNormalNC", "NvimTreeEndOfBuffer",
+      "TelescopeNormal", "TelescopeBorder", "TelescopePromptNormal",
+      "TelescopePromptBorder", "TelescopeResultsNormal",
+      "TelescopeResultsBorder", "TelescopePreviewNormal",
+      "TelescopePreviewBorder", "FloatBorder", "Pmenu", "PmenuSel"
+    }
+    for _, group in ipairs(groups) do
+      vim.api.nvim_set_hl(0, group, { bg = "none" })
+    end
+  end,
+})
